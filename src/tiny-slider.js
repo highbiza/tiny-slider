@@ -1807,7 +1807,11 @@ export var tns = function(options) {
           var srcset = getAttr(img, 'data-srcset');
           if (srcset) { img.srcset = srcset; }
 
-          addClass(img, 'loading');
+          if (img.tagName != "IMG") {
+            imgLoaded(img)
+          } else {
+            addClass(img, 'loading');
+          }
         }
       });
     }

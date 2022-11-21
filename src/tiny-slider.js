@@ -1800,8 +1800,11 @@ export var tns = function(options) {
 
           addEvents(img, imgEvents);
 
-          // update src
-          img.src = getAttr(img, 'data-src');
+          // update src, if not empty
+          var src = getAttr(img, 'data-src');
+          if (src) {
+            img.src = src
+          }
 
           // update srcset
           var srcset = getAttr(img, 'data-srcset');
